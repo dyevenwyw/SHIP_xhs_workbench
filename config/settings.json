@@ -1,0 +1,23 @@
+{
+  "antiRisk": {
+    "minIntervalMs": 5000,
+    "maxIntervalMs": 20000,
+    "stopOnRisk": true,
+    "riskKeywords": [
+      "安全限制",
+      "300017",
+      "300031"
+    ]
+  },
+  "defaults": {
+    "minLikes": 0,
+    "fetchCount": 30,
+    "sortByLikes": true,
+    "includeOcr": true
+  },
+  "workbench": {
+    "host": "127.0.0.1",
+    "serverPort": 3099,
+    "webPort": 5180
+  }
+}

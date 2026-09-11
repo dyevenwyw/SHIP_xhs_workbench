@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build artifacts
+web/dist/
+
+# runtime data & logs (regenerated on demand)
+data/*
+!data/.gitkeep
+tmp/*
+!tmp/.gitkeep
+output/*
+!output/.gitkeep
+*.log
+
+# macOS
+.DS_Store
+
+# secrets & local config (kept out of the repo)
+config/models.json
+.env
+.env.*
+
+# internal docs (not for public repo)
+OPENSOURCE_PLAN.md

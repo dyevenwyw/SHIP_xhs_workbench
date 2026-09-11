@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            vendor/opencli/package-lock.json
+
+      - name: Install workspaces (server + web)
+        run: npm ci
+
+      - name: Install OpenCLI (vendor)
+        working-directory: vendor/opencli
+        # vendor 内嵌 CLII 依赖不随 workspaces 安装，单独安装
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build:web
+
+      - name: Server smoke test
+        working-directory: server
+        run: npm test

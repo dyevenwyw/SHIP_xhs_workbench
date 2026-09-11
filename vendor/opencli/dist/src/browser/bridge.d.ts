@@ -1,0 +1,26 @@
+/**
+ * Browser session manager — auto-spawns daemon and provides IPage.
+ */
+import type { IPage } from '../types.js';
+import type { IBrowserFactory } from '../runtime.js';
+export type BrowserBridgeState = 'idle' | 'connecting' | 'connected' | 'closing' | 'closed';
+/**
+ * Browser factory: manages daemon lifecycle and provides IPage instances.
+ */
+export declare class BrowserBridge implements IBrowserFactory {
+    private _state;
+    private _page;
+    get state(): BrowserBridgeState;
+    connect(opts?: {
+        timeout?: number;
+        session?: string;
+        idleTimeout?: number;
+        contextId?: string;
+        preferredContextId?: string;
+        windowMode?: 'foreground' | 'background';
+        surface?: 'browser' | 'adapter';
+        siteSession?: 'ephemeral' | 'persistent';
+    }): Promise<IPage>;
+    close(): Promise<void>;
+    private _ensureDaemon;
+}

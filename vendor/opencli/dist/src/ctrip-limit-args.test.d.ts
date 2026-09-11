@@ -1,0 +1,12 @@
+import '../clis/ctrip/search.js';
+import '../clis/ctrip/hotel-suggest.js';
+import '../clis/ctrip/hotel-search.js';
+import '../clis/ctrip/flight.js';
+import '../clis/ctrip/flight-round.js';
+import '../clis/ctrip/train.js';
+import '../clis/ctrip/bus.js';
+import '../clis/ctrip/ferry.js';
+import '../clis/ctrip/cruise.js';
+import '../clis/ctrip/tour.js';
+import '../clis/ctrip/package.js';
+import '../clis/ctrip/attraction.js';

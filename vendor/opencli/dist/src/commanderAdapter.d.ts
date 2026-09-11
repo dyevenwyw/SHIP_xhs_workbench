@@ -1,0 +1,21 @@
+/**
+ * Commander adapter: bridges Registry commands to Commander subcommands.
+ *
+ * This is a THIN adapter — it only handles:
+ * 1. Commander arg/option registration
+ * 2. Collecting kwargs from Commander's action args
+ * 3. Calling executeCommand (which handles browser sessions, validation, etc.)
+ * 4. Rendering output and errors
+ *
+ * All execution logic lives in execution.ts.
+ */
+import { Command } from 'commander';
+import { type CliCommand } from './registry.js';
+/**
+ * Register a single CliCommand as a Commander subcommand.
+ */
+export declare function registerCommandToProgram(siteCmd: Command, cmd: CliCommand): void;
+/**
+ * Register all commands from the registry onto a Commander program.
+ */
+export declare function registerAllCommands(program: Command, siteGroups: Map<string, Command>): string[];
