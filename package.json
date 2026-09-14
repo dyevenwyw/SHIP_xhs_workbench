@@ -16,6 +16,15 @@
   "engines": {
     "node": ">=20"
   },
+  "trustedDependencies": [
+    "@jackwener/opencli",
+    "esbuild"
+  ],
+  "allowScripts": {
+    "@jackwener/opencli@1.8.7": true,
+    "esbuild@0.21.5": true,
+    "fsevents@2.3.3": true
+  },
   "workspaces": [
     "server",
     "web"
